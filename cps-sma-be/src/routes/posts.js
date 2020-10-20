@@ -20,4 +20,13 @@ router.put('/editPost/:postId', function(req, res, next) {
   res.send('hello from posts');
 });
 
+/*------------------------------------------ Add Comment ---------------------------*/
+router.post('/addComment', function(req, res, next) {
+  res.send('hello from posts');
+});
+
+router.delete('/removeComment', function(req, res, next) {
+  res.send('hello from posts');
+});
+
 module.exports = router;
