@@ -6,4 +6,16 @@ router.get('/', function(req, res, next) {
   res.send('hello from users');
 });
 
+/*------------------------------------------ SignUp ---------------------------*/
+router.post('/signup',async function (req, res, next) {
+  res.send('hello from users');
+
+});
+
+/*------------------------------------------ Login ---------------------------*/
+router.post('/login',async function (req, res, next) {
+  res.send('hello from users');
+
+});
+
 module.exports = router;
