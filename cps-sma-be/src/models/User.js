@@ -2,13 +2,17 @@ const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema({
     username: String,
+    firstname: String,
+    lastname: String,
+    address: String,
     password: String,
     email: String,
     createdAt: String,
     activeStatus: {
         type: Boolean,
-        default: true,
+        default: false,
     },
+    emailActivationKey: String,
     following: [{ type: mongoose.Schema.ObjectId, ref: "User" }],
     followingCount: {
         type: Number,
