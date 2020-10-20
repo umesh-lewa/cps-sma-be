@@ -29,4 +29,13 @@ router.delete('/removeComment', function(req, res, next) {
   res.send('hello from posts');
 });
 
+/*------------------------------------------ Add Like ---------------------------*/
+router.post('/addLike', function(req, res, next) {
+  res.send('hello from posts');
+});
+
+router.delete('/removeLike', function(req, res, next) {
+  res.send('hello from posts');
+});
+
 module.exports = router;
