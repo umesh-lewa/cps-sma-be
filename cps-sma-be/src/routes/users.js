@@ -35,4 +35,14 @@ function generateToken(user) {
   );
 }
 
+/*------------------------------------------ Add Follower ---------------------------*/
+router.post('/addFollower', function (req, res, next) {
+  res.send('hello from users');
+});
+
+/*------------------------------------------ Reset Password ---------------------------*/
+router.get('/resetPassword', function (req, res, next) {
+  res.send('hello from users');
+});
+
 module.exports = router;
