@@ -5,19 +5,47 @@ const jwt = require('jsonwebtoken');
 const { SECRET_KEY } = require('../../config');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.send('hello from users');
 });
 
 /*------------------------------------------ SignUp ---------------------------*/
-router.post('/signup',async function (req, res, next) {
+router.post('/signup', async function (req, res, next) {
   res.send('hello from users');
 
 });
 
 /*------------------------------------------ Login ---------------------------*/
-router.post('/login',async function (req, res, next) {
-  res.send('hello from users');
+router.post('/login', async function (req, res, next) {
+
+  const username = req.body.username;
+  const email = req.body.email;
+  const password = req.body.password;
+
+  const user = await User.findOne({ email });
+
+  if (!user) {
+    return res.json({
+      "stat": "failure",
+      "message": "User does not exist"
+    });
+  }
+
+  const match = await bcrypt.compare(password, user.password);
+  if (!match) {
+    return res.json({
+      "stat": "failure",
+      "message": "Email or Password in Incorrect"
+    });
+  }
+
+  const token = generateToken(user);
+
+  res.json({
+    "stat": "200",
+    "message": "Succeccfully Logged In",
+    "token": token
+  });
 
 });
 
