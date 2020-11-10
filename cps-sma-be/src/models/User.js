@@ -13,6 +13,14 @@ const UserSchema = new mongoose.Schema({
         default: false,
     },
     emailActivationKey: String,
+    intro: {
+        type: String,
+        default: "Hey ,I'm new here !. Let's be friends !"
+    },
+    reset_token: {
+        type: String,
+        default: "0"
+    },
     following: [{ type: mongoose.Schema.ObjectId, ref: "User" }],
     followingCount: {
         type: Number,
